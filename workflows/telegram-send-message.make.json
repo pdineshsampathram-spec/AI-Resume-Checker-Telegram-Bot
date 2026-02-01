@@ -6,7 +6,7 @@
             "module": "telegram:SendReplyMessage",
             "version": 1,
             "parameters": {
-                "__IMTCONN__": 4187136
+                "__IMTCONN__": ""
             },
             "mapper": {
                 "text": "{{var.input.Message}}",
@@ -23,24 +23,9 @@
                     "y": 0
                 },
                 "restore": {
-                    "expect": {
-                        "parseMode": {
-                            "label": "Empty"
-                        },
-                        "disableNotification": {
-                            "mode": "chose"
-                        },
-                        "replyMarkupAssembleType": {
-                            "label": "Enter the Reply Markup"
-                        }
-                    },
                     "parameters": {
                         "__IMTCONN__": {
-                            "data": {
-                                "scoped": "true",
-                                "connection": "telegram"
-                            },
-                            "label": "resumechecker21_bot"
+                            "label": "Telegram bot connection"
                         }
                     }
                 },
@@ -73,13 +58,7 @@
                     {
                         "name": "parseMode",
                         "type": "select",
-                        "label": "Parse Mode",
-                        "validate": {
-                            "enum": [
-                                "Markdown",
-                                "HTML"
-                            ]
-                        }
+                        "label": "Parse Mode"
                     },
                     {
                         "name": "disableNotification",
@@ -99,13 +78,7 @@
                     {
                         "name": "replyMarkupAssembleType",
                         "type": "select",
-                        "label": "Enter/Assemble the Reply Markup Field",
-                        "validate": {
-                            "enum": [
-                                "reply_markup_enter",
-                                "reply_markup_assemble"
-                            ]
-                        }
+                        "label": "Reply Markup Mode"
                     },
                     {
                         "name": "replyMarkup",

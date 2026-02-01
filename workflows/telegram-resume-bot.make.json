@@ -6,7 +6,7 @@
             "module": "telegram:WatchUpdates",
             "version": 1,
             "parameters": {
-                "__IMTHOOK__": 2244399
+                "__IMTHOOK__": ""
             },
             "mapper": {},
             "metadata": {
@@ -17,10 +17,7 @@
                 "restore": {
                     "parameters": {
                         "__IMTHOOK__": {
-                            "data": {
-                                "editable": "false"
-                            },
-                            "label": "Resume_checker"
+                            "label": "Telegram webhook"
                         }
                     }
                 },
@@ -40,10 +37,10 @@
             "version": 0,
             "parameters": {},
             "mapper": {
-                "agent": "479771df-1141-4ca1-86f8-75f2e1f44cac",
+                "agent": "",
                 "timeout": "",
                 "messages": [
-                    "The user has started the conversation:\n\n**Chat ID**: {{1.message.chat.id}}\n**User Message**: {{1.message.text}}\n\n---\n\n## Instructions\n\nYou have received a new message from a user through the Watch Updates tool. Follow these steps:\n\n1. **Immediately respond** to the user using the appropriate tool based on their message\n2. **Analyze their input** to determine the conversation stage and required action\n3. **Engage in a user-friendly manner** with warm, professional tone\n4. **Guide them through the process** based on their needs\n\n## Action Required\n\nProcess the user's message and respond accordingly:\n\n- If it's a **greeting** (hi, hello, start, wake, I'm back): Welcome them warmly and explain what you can help with\n- If it's a **resume evaluation request** (check resume, evaluate, validate, review): Ask for Google Doc link with clear instructions\n- If it's a **Google Doc link**: Acknowledge receipt, then fetch and evaluate the resume\n- If it's **general conversation**: Engage naturally while staying focused on hiring/resume topics\n- If it's an **email address** (after evaluation): Send the report via email and confirm\n\n## Response Tools to Use\n\n- **To Send Plain Text**: For general conversation, acknowledgments, and instructions\n- **To Send Resume Report**: Only after completing full resume evaluation\n- **Get Resume Content**: When valid Google Doc link is provided\n- **Send Email**: When user provides email address after evaluation\n\n**Remember**: Always be user-friendly, respond immediately, and guide users clearly through each step of the process."
+                    "The user has started the conversation:\n\n**Chat ID**: {{1.message.chat.id}}\n**User Message**: {{1.message.text}}\n\n---\n\n## Instructions\n\nYou have received a new message from a user through the Watch Updates tool. Follow these steps:\n\n1. Immediately respond to the user in a friendly and professional tone\n2. Analyze the user's message to determine intent\n3. Guide the user through the resume evaluation process\n\n## Action Handling\n\n- Greetings: Welcome the user and explain available features\n- Resume check requests: Ask for a Google Docs resume link\n- Google Docs link: Acknowledge and proceed with evaluation\n- Email address: Send the resume evaluation report\n\n## Available Tools\n\n- Send plain text replies\n- Fetch resume content from Google Docs\n- Send resume report via email\n\nAlways respond clearly and helpfully."
                 ],
                 "threadID": "",
                 "outputType": "",
@@ -52,28 +49,12 @@
             "metadata": {
                 "designer": {
                     "x": -24,
-                    "y": 17,
-                    "messages": [
-                        {
-                            "category": "share",
-                            "severity": "warning",
-                            "message": "This module may contain parts which cannot be shared completely."
-                        }
-                    ]
+                    "y": 17
                 },
                 "restore": {
                     "expect": {
                         "agent": {
-                            "label": "agent"
-                        },
-                        "messages": {
-                            "mode": "chose",
-                            "items": [
-                                null
-                            ]
-                        },
-                        "outputType": {
-                            "label": "Empty"
+                            "label": "AI Agent"
                         }
                     }
                 },
@@ -87,10 +68,7 @@
                     {
                         "name": "threadID",
                         "type": "text",
-                        "label": "Thread ID",
-                        "validate": {
-                            "max": 256
-                        }
+                        "label": "Thread ID"
                     },
                     {
                         "name": "additionalSystemPrompt",
@@ -99,33 +77,18 @@
                     },
                     {
                         "name": "messages",
-                        "spec": {
-                            "name": "value",
-                            "type": "text",
-                            "label": "Message"
-                        },
                         "type": "array",
                         "label": "Messages"
                     },
                     {
                         "name": "timeout",
                         "type": "number",
-                        "label": "Timeout",
-                        "validate": {
-                            "max": 600,
-                            "min": 120
-                        }
+                        "label": "Timeout"
                     },
                     {
                         "name": "outputType",
                         "type": "select",
-                        "label": "Output schema",
-                        "validate": {
-                            "enum": [
-                                "text",
-                                "make-schema"
-                            ]
-                        }
+                        "label": "Output schema"
                     }
                 ]
             }

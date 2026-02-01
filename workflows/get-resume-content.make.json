@@ -81,7 +81,7 @@
             "module": "google-docs:getADocument",
             "version": 1,
             "parameters": {
-                "__IMTCONN__": 4187504
+                "__IMTCONN__": ""
             },
             "mapper": {
                 "filter": "image",
@@ -95,21 +95,9 @@
                     "y": 0
                 },
                 "restore": {
-                    "expect": {
-                        "filter": {
-                            "label": "Image"
-                        },
-                        "select": {
-                            "label": "By Mapping"
-                        }
-                    },
                     "parameters": {
                         "__IMTCONN__": {
-                            "data": {
-                                "scoped": "true",
-                                "connection": "google"
-                            },
-                            "label": "My Google connection (polimeradineshsampathram@gmail.com)"
+                            "label": "Google Docs connection"
                         }
                     }
                 },
